@@ -1,0 +1,6 @@
+db.sqlite3
+geckodriver.log
+__pycache__
+*.pyc_
+*.pyc
+*.pyc/*.cmake/*.DS_Store/.user
