@@ -24,22 +24,17 @@ class PageTest(unittest.TestCase):
 		input1= self.browser.find_element_by_id('in1').text
 		self.assertIn('Name', input1)
 		name = self.browser.find_element_by_id('Name').send_keys("Eden Mendoza")
+		time.sleep(2)
 
 		input2= self.browser.find_element_by_id('in2').text
 		self.assertIn('Name of Suggested Restaurant or Site', input2)
 		name = self.browser.find_element_by_id('Name1').send_keys("Batang 9Teas-Milk Tea")
+		time.sleep(2)
 
 		input3= self.browser.find_element_by_id('in3').text
 		self.assertIn('Address of Suggested Restaurant or Site', input3)
 		name = self.browser.find_element_by_id('Address').send_keys("Brgy. San Esteban, Dasmarinas")
-
-
-		'''inputbox.send_keys('eden')
-		inputbox.send_keys('Keys.ENTER')
-		time.sleep(1)
-		table = self.browser.find_element_by_id('idListTable')
-		rows = table.find_element_by_tag_name('tr')
-		self.assertTrue(any(row.text == '1:Twice'))'''	
+		time.sleep(2)
 
 
 
