@@ -1,25 +1,21 @@
 from selenium import webdriver
-import unittest
-from selenium.webdriver.common.keys import Keys
-import time
+browser = webdriver.Firefox()
+browser.get('http://127.0.0.1:8000')
 
-'''browser = webdriver.Firefox()
-browser.get('http://127.0.0.1:8000')'''
-
-class PageTest(unittest.TestCase):
+'''class PageTest(unittest.TestCase):
 
 	def setUp(self):
 		self.browser = webdriver.Firefox()
 
 	def test_browser_test(self):
-		'''browser.get('http://127.0.0.1:8000')'''
+		browser.get('http://127.0.0.1:8000')
 
 	def test_browser_title(self): 
 		self.browser.get('http://localhost:8000')
-		self.assertIn('Add Place', self.browser.title)
+		self.assertIn('Add Suggested Place', self.browser.title)
 
 		headerText = self.browser.find_element_by_tag_name('h1').text
-		self.assertIn('Add Place', headerText)
+		self.assertIn('Add Suggested Place', headerText)
 
 		input1= self.browser.find_element_by_id('in1').text
 		self.assertIn('Name', input1)
@@ -36,7 +32,11 @@ class PageTest(unittest.TestCase):
 		name = self.browser.find_element_by_id('Address').send_keys("Brgy. San Esteban, Dasmarinas")
 		time.sleep(2)
 
+		input4= self.browser.find_element_by_id('in4').text
+		self.assertIn('Date', input)
+		name = self.browser.find_element_by_id('Date').send_keys("24/04/2021")
+		time.sleep(2)
 
 
 if __name__== '__main__':
-	unittest.main(warnings='ignore')
+	unittest.main(warnings='ignore')'''
