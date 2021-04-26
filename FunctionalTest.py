@@ -76,11 +76,11 @@ class PageTest(unittest.TestCase):
 
 		date = self.browser.find_element_by_id('Date').click()
 		time.sleep(1)
-		date = self.browser.find_element_by_id('Date').send_keys("2021-04-27")
+		date = self.browser.find_element_by_id('Date').send_keys("2021-04-26")
 		time.sleep(1)
 
 		submit = self.browser.find_element_by_id('Submit').click()
-		time.sleep(3)
+		time.sleep(1)
 		self.browser.quit()
 
 

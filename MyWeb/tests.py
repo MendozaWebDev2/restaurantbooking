@@ -72,3 +72,35 @@ class ORM_Save(TestCase):
 		self.assertEqual(Item2.Name1, 'Unli Wings')
 		self.assertEqual(Item3.Address, 'Palipran 2, Dasmarinas City, Cavite')
 		self.assertEqual(Item4.Date, '2021-04-26')
+
+class ORM_Save1(TestCase):
+	def test_saving1(self):
+		Item1 = Item()
+		Item1.Name = 'Charles DelaCruz'
+		Item1.save()
+		Item2 = Item()
+		Item2.Name1 = 'Samgyupsal'
+		Item2.save()
+		Item3 = Item()
+		Item3.Address = 'Salawag, Dasmarinas City, Cavite'
+		Item3.save()
+		Item4 = Item()
+		Item4.Date = '2021-04-26'
+		Item4.save()
+		saveall = Item.objects.all()
+		self.assertEqual(saveall.count(), 4)
+		save1 = saveall[0]
+		save2 = saveall[1]
+		save3 = saveall[2]
+		save4 = saveall[3]
+		self.assertEqual(Item1.Name, 'Charles DelaCruz')
+		self.assertEqual(Item2.Name1, 'Samgyupsal')
+		self.assertEqual(Item3.Address, 'Salawag, Dasmarinas City, Cavite')
+		self.assertEqual(Item4.Date, '2021-04-26')
+
+class Views_Test(TestCase):
+	def test_views(self):
+		Item.objects.create(Name='Name', 
+			Name1='Name1', Address='Address',
+			Date='2021-04-26')
+		response = self.client.get('/app/views.mainpage/')
