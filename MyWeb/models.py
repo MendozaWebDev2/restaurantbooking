@@ -7,8 +7,9 @@ class Item(models.Model):
 	Name1 = models.CharField(max_length=50, null=True)
 	#ADDRESS
 	Address = models.CharField(max_length=50, null=True)
+
 	#DATE
-	Date = models.DateTimeField(auto_now_add=True, null=True)
+	Date = models.DateTimeField(null=True)
 
 	def __str__(self):
 		return self.Name
