@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Rate Us</title>
+        <style>
+            .button {
+              background-color: maroon;
+              border: none;
+              color: white;
+              padding: 15px 30px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+
+            body {background-color:#CD5C5C;}
+            h1 {font-style: italic;}
+            label {font-weight: bold;}
+
+        </style>
+    </head>
+        <div class="form">
+            <form class="form" action="" method="post">
+            {% csrf_token %}
+
+    	<div class="heading">
+    		<h1>Rate Us</h1>
+    	</div>
+
+      <label id=in1>Costumer No.</label><br>
+      <input size="40" type="text" id=costumerId name="costumerId" placeholder=""><br><br>
+                <br><br>
+
+              <label for="rating">Rate Us</label>
+              <select id="rate">
+                  <!-- <option href="#" value="">--Please choose an option--</option> -->
+                  <option value="1">1</option>
+                  <option value="2">2 Mastercard</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 Prepaid Mastercard</option>
+              </select>
+
+
+          <br><br><br>
+
+
+    			<label id=in2>Comments</label><br>
+          <textarea type="text" id=comments name="comments" placeholder="Comments and Suggestion"></textarea>
+        
+
+    			<br><br><br>
+    			<input type="submit" id="Submit" name="Submit" value="Submit" class="button">
+
+    		</form>
+        
+    </body>
+
+
+ </html>

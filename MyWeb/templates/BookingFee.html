@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Restaurant Booking Fee</title>
+        <style>
+            .button {
+              background-color: maroon;
+              border: none;
+              color: white;
+              padding: 15px 30px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+
+            body {background-color:#CD5C5C;}
+            h1 {font-style: italic;}
+            label {font-weight: bold;}
+            p {
+              font-size: 13px;
+              font-style: italic;
+
+
+                }
+
+        </style>
+    </head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+        <center>
+        <div class="form">
+            <form class="form" action="third" method="POST">
+            {% csrf_token %}
+
+    	<div class="heading">
+    		<h1>Restaurant Booking Fee</h1>
+    	</div>
+                <br><br>
+    			<label id=in1>Costumer No.</label><br>
+          <input size="40" type="text" id=uid name="uid" placeholder=""><br><br>
+
+<!--           <label id=in2>First Name:</label><br>
+          <input size="40" type="text" id=Name name="Name" placeholder="Fisrtname"><br><br>
+
+          <label id=in3>Last Name:</label><br>
+          <input size="40" type="text" id=Name1 name="Name1" placeholder="Lastname"><br><br> -->
+
+          <h3>Booking Fee: Php 300.00</h3>
+          <p>*Note: We only accept cards.</p>
+
+          <label for="BankChoices">Select Card:</label><br>
+
+              <select id="BankChoices">
+                  <option href="#" value="">--Please choose an option--</option>
+                  <option value="1">PayMaya</option>
+                  <option value="2">Gcash Mastercard</option>
+                  <option value="3">BPI</option>
+                  <option value="4">BDO</option>
+                  <option value="5">BSP Prepaid Mastercard</option>
+                  <option value="6">EastWest Prepaid Card</option>
+                  <option value="7">Landbank Cash Card</option>
+                  <option value="8">PNB Prepaid Card</option>
+                  <option value="9">PSBank Prepaid Mastercard</option>
+                  <option value="10">RCBC MyWallet Prepaid Card</option>
+                  <option value="11">Smart Money Card</option>
+                  <option value="12">UnionBank Classic Visa</option>
+                  <option value="13">Metrobank</option>
+              </select>
+
+            <br><br>
+
+            <label id=in2>Card Number:</label><br>
+            <input size="40" type="text" id=cnum name="cnum" placeholder="0000 0000 0000 0000"><br><br>
+
+            <label id=in3>Card Holder Name:</label><br>
+            <input size="40" type="text" id=cname name="cname" placeholder="Surname, Fisrtname, MI"><br><br>
+
+            <label id=in4>Expiration Date:</label><br>
+            <input size="40" type="text" id=cdate name="cdate" placeholder="MM-DD-YEAR"><br><br>
+
+            <label id=in5>Code:</label><br>
+            <input size="6" type="password" id=ccode name="ccode" placeholder="****"><br><br>
+
+            <div data-ng-app="" data-ng-init="fee=300">
+                <h4 id="Bfee">Booking Fee: {{fee}}</h4><br>
+
+            <div data-ng-app="" data-ng-init="donation=0">
+
+                Amount of Tip:<br> <input type="number" ng-model="donation">
+
+
+                <h5 id="Dfee">Total Tip: {{donation}}</h5>
+                <h4><b>Total Amount:<b> {{fee + donation}}</h4>
+
+
+    			<br><br><br>
+    			<input type="submit" id="Submit" name="Submit" value="Confirm and Pay" class="button">
+
+    		</form>
+        </center>
+    </body>
+
+
+ </html>

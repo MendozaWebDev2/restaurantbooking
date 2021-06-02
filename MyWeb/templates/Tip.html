@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Tip</title>
+        <style>
+            .button {
+              background-color: maroon;
+              border: none;
+              color: white;
+              padding: 15px 30px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+
+            body {background-color: #CD5C5C;}
+            h1 {font-style: italic;}
+            label {font-weight: bold;}
+            p {font-size: 13px;
+              font-style: italic;}
+
+        </style>
+
+        <script>
+          function mult(value) {
+            var x ;
+            x= 300 + value ;
+
+            document.getElementById('total').value = y ;
+          }
+        </script>
+
+    </head>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+        <center>
+        <div class="form">
+            <form class="form" action="" method="post">
+            {% csrf_token %}
+
+    	<div class="heading">
+    		<h1>Tip Any Amount</h1>
+    	</div>
+
+      <label>Amount of Tip</label><br>
+      <input type="number" name="AmountofTip" id="AmountofTip" onkeyup="mult(this.value);">
+      <br><br>
+      <label>Booking Fee:</label><br>
+      <input type="text" name="fee" id="fee" readonly placeholder="300">
+      <br><br>
+      <label>Total Amount:</label><br>
+      <input type="text" name="total" id="total" readonly>
+
+
+                <!-- <div data-ng-app="" data-ng-init="fee=300">
+                <h4 id="Bfee">Booking Fee: {{fee}}</h4><br>
+
+                <p>*If you don't want to tip us just leave it 0 and confirm. Thank You!</p>
+
+                <div data-ng-app="" data-ng-init="tip=0">
+
+                <label>Amount of Tip:</label><br> <input type="number" ng-model="tip">
+
+
+                <h5 id="Bfee">Total Tip: {{tip}}</h5>
+                <h4><b>Total Amount:<b> {{fee + tip}}</h4>
+
+                <input type="submit" id="Submit" name="Submit" value="Confirm & Pay" class="button"> -->
+
+</div>
+
+    		</form>
+        </center>
+    </body>
+
+
+ </html>

@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Add Suggested Place</title>
+        <title>Restaurant Dine-In Booking</title>
     </head>
     <body bgcolor="gainsboro">
 
@@ -10,20 +10,23 @@
             {% csrf_token %}
 
     	<div class="heading">
-    		<h1 style="color: forestgreen">Add Suggested Place</h1>
+    		<h1 style="color: forestgreen">Restaurant Dine-In Booking</h1>
     	</div>
 
     			<p id=in1>Name</p>
     			<input size="40" type="text" id=Name name="Name" placeholder="Fisrtname, Lastname">
 
-    			<p id=in2>Name of Suggested Restaurant or Site</p>
-    			<input size="40" type="text" id=Name1 name="Name1" placeholder="Type Here">
+    			<p id=in2>Restaurant</p>
+    			<input size="40" type="text" id=Name1 name="Name1" placeholder="Name of Restaurant">
 
-    			<p id=in3>Address of Suggested Restaurant or Site</p> 
-    			<input size="40" type="text" id=Address name="Address" placeholder="Type Here">
+    			<p id=in3>Address</p> 
+    			<input size="40" type="text" id=Address name="Address" placeholder="Restaurant Address">
 
                 <p id=in4>Date</p>
                 <input  style="height: 35px; width: 200px; " type="date" id="Date" placeholder="Date" name="Date">
+
+                <p id=in5>Time</p> 
+                <input size="40" type="text" id=Time name="Time" placeholder="HH:MM Am/Pm">
 
     			<br><br><br><br>
     			<input type="submit" id="Submit" name="Submit" value="Submit">

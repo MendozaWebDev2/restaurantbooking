@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Restaurant Dine-In Booking</title>
+        <style>
+            .button {
+              background-color: maroon;
+              border: none;
+              color: white;
+              padding: 15px 30px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+
+            body {background-color: #CD5C5C;}
+            h1 {font-style: italic;}
+            label {font-weight: bold;}
+
+        </style>
+    </head>
+        <center>
+        <div class="form">
+            <form class="form" action="ok" method="POST">
+            {% csrf_token %}
+
+    	<div class="heading">
+    		<h1>Restaurant Dine-In Booking</h1>
+    	</div>
+                <br><br>
+    			<label id=in1>First Name:</label><br>
+    			<input size="40" type="text" id=Name name="Name" placeholder="Fisrtname"><br><br>
+
+    			<label id=in2>Last Name:</label><br>
+    			<input size="40" type="text" id=Name1 name="Name1" placeholder="Lastname"><br><br>
+
+    			<label id=in3>Contact Number:</label><br> 
+    			<input size="40" type="text" id=Num name="Num" placeholder="Number"><br><br>
+
+                <label id=in4>Address:</label><br> 
+                <input size="40" type="text" id=Address name="Address" placeholder="Address"><br><br>
+
+    			<br><br><br>
+    			<input type="submit" id="Submit" name="Submit" value="Submit" class="button">
+
+    		</form>
+        </center>
+    </body>
+
+
+ </html>

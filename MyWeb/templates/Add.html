@@ -23,7 +23,7 @@
 	{% endfor %}
 </body>
 </html> -->
-
+<html>
 <style>
 table, td, th {
   border: 1px solid black;
@@ -31,14 +31,15 @@ table, td, th {
 }
 </style>
 <body style="background-color:#FFDEAD;">
-<center><h1>ADD SUGGESTED PLACE</h1></center>
+<center><h1>Restaurant Dine-In Booking</h1></center>
 <table style="width:100%">
   <tr>
   
     <th>Name: </th>
-    <th>Name of Suggested Restaurant or Site:</th>
-    <th>Address of Suggested Restaurant or Site: </th>
+    <th>Restaurant:</th>
+    <th>Address: </th>
     <th>Date:</th>
+    <th>Time:</th>
     </tr>
 <div class="den">
 	{% for den in den %}
@@ -49,6 +50,7 @@ table, td, th {
     <td>{{ den.Name1 }}</td>
     <td>{{ den.Address }}</td>
     <td>{{ den.Date }}</td>
+    <td>{{ den.Time }}</td>
  	</tr>
 
 

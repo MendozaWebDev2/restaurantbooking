@@ -1,0 +1,46 @@
+<html>
+<style>
+table, td, th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+<body style="background-color:#FFDEAD;">
+<center><h1>Restaurant Dine-In Booking</h1></center>
+<table style="width:100%">
+  <tr>
+  
+    <th>Costumer No.: </th>
+    <th>First Name:</th>
+    <th>Last Name: </th>
+    <th>Contact Number:</th>
+    <th>Restaurant Name:</th>
+    <th>No. of Seat:</th>
+    <th>Date:</th>
+    <th>Time:</th>
+    <th>Booking Fee:</th>
+    <th>Donate to Animals:</th>
+    </tr>
+<div class="den">
+  {% for den in den %}
+  <div class="den">
+
+    <tr>
+    <td>{{ forloop.counter }}:{{ den.Costumer No. }}</td>
+    <td>{{ den.Name }}</td>
+    <td>{{ den.Name1 }}</td>
+    <td>{{ den.Num }}</td>
+    <td>{{ den.Rname }}</td>
+    <td>{{ den.Nums }}</td>
+    <td>{{ den.date }}</td>
+    <td>{{ den.time }}</td>
+    <td>{{ den.Bfee }}</td>
+    <td>{{ den.Dfee }}</td>
+  </tr>
+
+
+</div>
+  {% endfor %}
+  </table>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Restaurant Booking Information</title>
+        <style>
+            .button {
+              background-color: maroon;
+              border: none;
+              color: white;
+              padding: 15px 30px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+
+            body {background-color:#CD5C5C;}
+            h1 {font-style: italic;}
+            label {font-weight: bold;}
+            p {
+              font-size: 13px;
+              font-style: italic;
+            }
+
+        </style>
+    </head>
+
+        <center>
+        <div class="form">
+            <form class="form" action="new" method="POST">
+            {% csrf_token %}
+
+    	<div class="heading">
+    		<h1>Restaurant Booking Information</h1>
+    	</div>
+                <br><br>
+    			<label id=in1>Costumer No.</label><br>
+          <input size="40" type="text" id=costumerId name="costumerId" placeholder=""><br><br>
+
+    			<label id=in2>Restaurant Name:</label><br>
+    			<input size="40" type="text" id=Rname name="Rname" placeholder="Restaurant"><br><br>
+
+    			<label id=in3>Number of Seat:</label><br> 
+    			<input size="40" type="text" id=Nums name="Nums" placeholder="Seat"><br><br>
+
+          <label id=in4>Date:</label><br> 
+          <input size="40" type="text" id=date name="date" placeholder="YYYY-MM-DD"><br><br>
+
+          <label id=in5>Time:</label><br> 
+          <input size="40" type="text" id=time name="time" placeholder="HH:MM AM/PM"><br><br>
+
+          <h3>Booking Fee: Php 300.00</h3>
+          <p>*Note: We only accept cards.</p>
+
+        <!--   <label for="BankChoices" name="BankChoices">Select Card:</label><br>
+
+              <select id="Choices" name="Choices">
+                  <option href="#" value="">--Please choose an option--</option>
+                  <option value="1">PayMaya</option>
+                  <option value="2">Gcash Mastercard</option>
+                  <option value="3">BPI</option>
+                  <option value="4">BDO</option>
+                  <option value="5">BSP Prepaid Mastercard</option>
+                  <option value="6">EastWest Prepaid Card</option>
+                  <option value="7">Landbank Cash Card</option>
+                  <option value="8">PNB Prepaid Card</option>
+                  <option value="9">PSBank Prepaid Mastercard</option>
+                  <option value="10">RCBC MyWallet Prepaid Card</option>
+                  <option value="11">Smart Money Card</option>
+                  <option value="12">UnionBank Classic Visa</option>
+                  <option value="13">Metrobank</option>
+              </select>
+ -->
+          <br><br>
+
+          <label id=in2>Card Number:</label><br>
+          <input size="40" type="text" id=cnum name="cnum" placeholder="0000 0000 0000 0000"><br><br>
+
+          <label id=in3>Card Holder Name:</label><br>
+          <input size="40" type="text" id=cname name="cname" placeholder="Surname, Fisrtname, MI"><br><br>
+
+          <label id=in4>Expiration Date:</label><br>
+          <input size="40" type="text" id=cdate name="cdate" placeholder="YYYY-MM-DD"><br><br>
+
+          <label id=in5>Code:</label><br>
+          <input size="6" type="password" id=ccode name="ccode" placeholder="****"><br><br>
+
+
+
+    			<br><br><br>
+    			<input type="submit" id="Submit" name="Submit" value="Confirm" class="button">
+
+    		</form>
+        </center>
+    </body>
+
+
+ </html>
