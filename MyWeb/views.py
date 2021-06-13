@@ -44,7 +44,7 @@ def thirdpage(request):
 
 def restip(request):
 
-	customerId=Booking.objects.create(
+	customerId=Tip.objects.create(
 		AmountofTip = request.POST['AmountofTip'],
 		)
 
@@ -56,7 +56,7 @@ def fourthpage(request):
 
 def park(request):
 
-	customerId=Booking.objects.create(
+	customerId=Parking.objects.create(
 		Ask = request.POST['Ask'],
 		Ehours = request.POST['Ehours'],
 		)
@@ -67,14 +67,42 @@ def fifthpage(request):
 
 	return render(request,'Ratings.html')
 
-def rate(request):
+def rates(request):
 
-	customerId=Booking.objects.create(
-		rating = request.POST['rate'],
+	customerId=Ratings.objects.create(
+		rate = request.POST['rate'],
 		comments = request.POST['comments'],
 		)
 
 	return render(request,'Ratings.html')
+
+# def lastpage(request):
+
+# 	return render(request,'BookingInfo.html')
+
+# def info(request):
+
+# 	Boooking=BookingDetails.objects.create(
+# 		den=request.POST['den'],)
+
+# 	Name=Name.objects.last
+# 	Name1=Name1.objects.last
+# 	Rname=Rname.objects.last
+# 	Nums=Nums.objects.last
+# 	date=date.objects.last
+# 	time=time.objects.last
+
+# 	return render(request,'BookingInfo.html'), {
+# 	'Name':Name,
+# 	'Name1':Name1,
+# 	'Rname':Rname,
+# 	'Nums':Nums,
+# 	'date':date,
+# 	'time':time,}
+
+
+
+# 	return render(request,'BookingInfo.html')
 
 
 

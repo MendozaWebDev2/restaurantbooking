@@ -1,50 +1,151 @@
+{% load static %}
 <html>
-    <head>
-        <title>Parking Info</title>
-        <style>
-            .button {
-              background-color: maroon;
-              border: none;
-              color: white;
-              padding: 15px 30px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              margin: 4px 2px;
-              cursor: pointer;
-            }
+  <head>
+    <title>Parking</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      /*background-color: #bfb8b8  maroon;
+      }*/
+      background: url('{% static 'admin/img/fourth.jpg' %}') no-repeat fixed;
+      background-size: cover;
+      }
 
-            body {background-color: #CD5C5C;}
-            h1 {font-style: italic;}
-            label {font-weight: bold;}
+      .header {
+        position: fixed;
+        min-height: 2.5vh;
+        width: 100%;
+        height:15%;
+        display: block;
+        background-color: maroon;
+        z-index: 4;
+      }
 
-        </style>
-    </head>
-        <center>
-        <div class="form">
-            <form class="form" action="" method="POST">
-            {% csrf_token %}
+      .inner_header {
+        width: 1000px;
+        height: 100%;
+        display: block;
+        margin:0 auto;
+        background: maroon;
+      }
+      .logo_container {
+        height: 100%;
+        display: table;
+        float: left;
 
-    	<div class="heading">
-    		<h1>Parking Information</h1>
-    	</div>
-                <br><br>
-          <label id=in1>Costumer No.</label><br>
-          <input size="40" type="text" id=costumerId name="costumerId" placeholder=""><br><br>
+      }
+
+      .logo_container h2{
+        color:white;
+        height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        /*font-family: 'Montserrat';*/
+        font-size: 32px;
+        font-weight: 50;
+        
+      }
+
+      .logo_container h2 span{
+        font-weight: 950;
+      }
+
+
+
+      body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      /*background: white;*/
+      margin-top: 0;
+      }
+
+      form {
+      border: 5px solid #f1f1f1;
+      position: relative;
+      top: 140px;
+      background: white;
+
+      }
+
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+
+      button {
+      background-color: maroon;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      }
+
+      h1 {
+      text-align:center;
+      font-size:30;
+      }
+
+      button:hover {
+      opacity: 0.8;
+      }
+
+      .formcontainer {
+      text-align: left;
+      margin: 24px 50px 12px;
+      padding: 0px;
+      }
+
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      
+    </style>
+  </head>
+    <header class="header" id="header">
+      <div class="inner_header">
+        <div class="logo_container">
+          <h2>RESTAURANT<span>BOOKING</span><h2>
+        </div>
+      </div>
+    </header>
+  <body>
+    <form class="form" action="success" method="POST">
+      {% csrf_token %}
+
+      <h1>Parking Information</h1>
+
+      <div class="formcontainer">
+      <hr/>
+      <div class="container">
+          <!-- <label id=in1>Costumer No.</label><br>
+          <input size="40" type="text" id=costumerId name="costumerId" readonly=""><br><br> -->
           
-    			<label id=in1>Do you have car or motorcyle?</label><br>
-    			<input size="40" type="text" id=Ask name="Ask" placeholder="Yes or No"><br><br>
+          <label id=in1>Do you have vehicle?</label><br>
+          <input size="40" type="text" id=Ask name="Ask" placeholder="Yes or No" required=""><br><br>
 
-    			<label id=in2>Estimated Hours of Parking:</label><br>
-    			<input size="40" type="text" id=Ehours name="Ehours" placeholder="0"><br><br>
+          <label id=in1>Type of Vehicle</label><br>
+          <input size="40" type="text" id=Kind name="Kind"><br><br>
 
-    			<br><br><br>
-    			<input type="submit" id="Submit" name="Submit" value="Submit" class="button">
+          <label id=in2>Estimated Hours of Parking:</label><br>
+          <input size="40" type="text" id=Ehours name="Ehours" placeholder="">
+          <p>*If your answer is No leave it blank and submit.</p>
 
-    		</form>
-        </center>
-    </body>
-
-
- </html>
+      </div>
+      <button type="submit">Submit</button>
+      
+    </form>
+  </body>
+</html>

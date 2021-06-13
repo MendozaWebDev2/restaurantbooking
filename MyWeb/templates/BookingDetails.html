@@ -1,99 +1,173 @@
+{% load static %}
 <html>
-    <head>
-        <title>Restaurant Booking Information</title>
-        <style>
-            .button {
-              background-color: maroon;
-              border: none;
-              color: white;
-              padding: 15px 30px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              margin: 4px 2px;
-              cursor: pointer;
-            }
+  <head>
+    <title>Restaurant Booking Details</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      /*background-color: #bfb8b8  maroon;
+      }*/
+      background: url('{% static 'admin/img/one.jpg' %}') no-repeat fixed;
+      background-size: cover;
+      }
 
-            body {background-color:#CD5C5C;}
-            h1 {font-style: italic;}
-            label {font-weight: bold;}
-            p {
-              font-size: 13px;
-              font-style: italic;
-            }
+      .header {
+        position: fixed;
+        min-height: 2.5vh;
+        width: 100%;
+        height:15%;
+        display: block;
+        background-color: maroon;
+        z-index: 4;
+      }
 
-        </style>
-    </head>
+      .inner_header {
+        width: 1000px;
+        height: 100%;
+        display: block;
+        margin:0 auto;
+        background: maroon;
+      }
+      .logo_container {
+        height: 100%;
+        display: table;
+        float: left;
 
-        <center>
+      }
+
+      .logo_container h2{
+        color:white;
+        height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        /*font-family: 'Montserrat';*/
+        font-size: 32px;
+        font-weight: 50;
+        
+      }
+
+      .logo_container h2 span{
+        font-weight: 950;
+      }
+
+
+
+      body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      /*background: white;*/
+      margin-top: 0;
+      }
+
+      form {
+      border: 5px solid #f1f1f1;
+      position: relative;
+      top: 140px;
+      background: white;
+
+      }
+
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+
+      button {
+      background-color: maroon;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      }
+
+      h1 {
+      text-align:center;
+      font-size:30;
+      }
+
+      button:hover {
+      opacity: 0.8;
+      }
+
+      .formcontainer {
+      text-align: left;
+      margin: 24px 50px 12px;
+      padding: 0px;
+      }
+
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <header class="header" id="header">
+      <div class="inner_header">
+        <div class="logo_container">
+          <h2>RESTAURANT<span>BOOKING</span><h2>
+        </div>
+      </div>
+    </header>
         <div class="form">
             <form class="form" action="new" method="POST">
             {% csrf_token %}
 
-    	<div class="heading">
-    		<h1>Restaurant Booking Information</h1>
-    	</div>
-                <br><br>
-    			<label id=in1>Costumer No.</label><br>
-          <input size="40" type="text" id=costumerId name="costumerId" placeholder=""><br><br>
+      <div class="heading">
+        <h1>Restaurant Booking Information</h1>
+      </div>
+          
+          <div class="formcontainer">
+          <hr/>
+          <div class="container">
 
-    			<label id=in2>Restaurant Name:</label><br>
-    			<input size="40" type="text" id=Rname name="Rname" placeholder="Restaurant"><br><br>
+          <!-- <label id=in1>Costumer No.</label>
+          <input size="40" type="text" id=costumerId name="costumerId" placeholder="" readonly=""> -->
 
-    			<label id=in3>Number of Seat:</label><br> 
-    			<input size="40" type="text" id=Nums name="Nums" placeholder="Seat"><br><br>
+          <label id=in2>Restaurant Name:</label><br>
+          <input size="40" type="text" id=Rname name="Rname" placeholder="Restaurant" required>
+
+          <label id=in3>Number of Seat:</label><br> 
+          <input size="40" type="text" id=Nums name="Nums" placeholder="Seat" required>
 
           <label id=in4>Date:</label><br> 
-          <input size="40" type="text" id=date name="date" placeholder="YYYY-MM-DD"><br><br>
+          <input size="40" type="text" id=date name="date" placeholder="YYYY-MM-DD" required>
 
           <label id=in5>Time:</label><br> 
-          <input size="40" type="text" id=time name="time" placeholder="HH:MM AM/PM"><br><br>
+          <input size="40" type="text" id=time name="time" placeholder="HH:MM AM/PM" required>
 
           <h3>Booking Fee: Php 300.00</h3>
           <p>*Note: We only accept cards.</p>
 
-        <!--   <label for="BankChoices" name="BankChoices">Select Card:</label><br>
-
-              <select id="Choices" name="Choices">
-                  <option href="#" value="">--Please choose an option--</option>
-                  <option value="1">PayMaya</option>
-                  <option value="2">Gcash Mastercard</option>
-                  <option value="3">BPI</option>
-                  <option value="4">BDO</option>
-                  <option value="5">BSP Prepaid Mastercard</option>
-                  <option value="6">EastWest Prepaid Card</option>
-                  <option value="7">Landbank Cash Card</option>
-                  <option value="8">PNB Prepaid Card</option>
-                  <option value="9">PSBank Prepaid Mastercard</option>
-                  <option value="10">RCBC MyWallet Prepaid Card</option>
-                  <option value="11">Smart Money Card</option>
-                  <option value="12">UnionBank Classic Visa</option>
-                  <option value="13">Metrobank</option>
-              </select>
- -->
           <br><br>
 
           <label id=in2>Card Number:</label><br>
-          <input size="40" type="text" id=cnum name="cnum" placeholder="0000 0000 0000 0000"><br><br>
+          <input size="40" type="text" id=cnum name="cnum" placeholder="0000 0000 0000 0000" required><br><br>
 
           <label id=in3>Card Holder Name:</label><br>
-          <input size="40" type="text" id=cname name="cname" placeholder="Surname, Fisrtname, MI"><br><br>
+          <input size="40" type="text" id=cname name="cname" placeholder="Surname, Fisrtname, MI" required><br><br>
 
           <label id=in4>Expiration Date:</label><br>
-          <input size="40" type="text" id=cdate name="cdate" placeholder="YYYY-MM-DD"><br><br>
+          <input size="40" type="text" id=cdate name="cdate" placeholder="YYYY-MM-DD" required><br><br>
 
           <label id=in5>Code:</label><br>
-          <input size="6" type="password" id=ccode name="ccode" placeholder="****"><br><br>
-
-
-
-    			<br><br><br>
-    			<input type="submit" id="Submit" name="Submit" value="Confirm" class="button">
-
-    		</form>
-        </center>
-    </body>
-
-
- </html>
+          <input size="6" type="password" id=ccode name="ccode" placeholder="****" required><br><br>
+        </div>
+      <button type="submit">Confirm</button>
+      
+    </form>
+  </body>
+</html>

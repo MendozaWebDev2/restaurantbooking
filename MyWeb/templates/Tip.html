@@ -1,78 +1,177 @@
+{% load static %}
 <html>
-    <head>
-        <title>Tip</title>
-        <style>
-            .button {
-              background-color: maroon;
-              border: none;
-              color: white;
-              padding: 15px 30px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              margin: 4px 2px;
-              cursor: pointer;
-            }
+  <head>
+    <title>Tip</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      /*background-color: #bfb8b8  maroon;
+      }*/
+      background: url('{% static 'admin/img/third.jpg' %}') no-repeat fixed;
+      background-size: cover;
+      }
 
-            body {background-color: #CD5C5C;}
-            h1 {font-style: italic;}
-            label {font-weight: bold;}
-            p {font-size: 13px;
-              font-style: italic;}
+      .header {
+        position: fixed;
+        min-height: 2.5vh;
+        width: 100%;
+        height:15%;
+        display: block;
+        background-color: maroon;
+        z-index: 4;
+      }
 
-        </style>
+      .inner_header {
+        width: 1000px;
+        height: 100%;
+        display: block;
+        margin:0 auto;
+        background: maroon;
+      }
+      .logo_container {
+        height: 100%;
+        display: table;
+        float: left;
 
-        <script>
+      }
+
+      .logo_container h2{
+        color:white;
+        height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        /*font-family: 'Montserrat';*/
+        font-size: 32px;
+        font-weight: 50;
+        
+      }
+
+      .logo_container h2 span{
+        font-weight: 950;
+      }
+
+
+
+      body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      /*background: white;*/
+      margin-top: 0;
+      }
+
+      form {
+      border: 5px solid #f1f1f1;
+      position: relative;
+      top: 140px;
+      background: white;
+
+      }
+
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+
+      button {
+      background-color: maroon;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      }
+
+      h1 {
+      text-align:center;
+      font-size:30;
+      }
+
+      button:hover {
+      opacity: 0.8;
+      }
+
+      .formcontainer {
+      text-align: left;
+      margin: 24px 50px 12px;
+      padding: 0px;
+      }
+
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+
+      textarea {
+      width: 100%;
+      height: 100px;
+      padding: 8px;
+/*      margin: 8px 0;*/
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    </style>
+
+    <script>
           function mult(value) {
-            var x ;
-            x= 300 + value ;
+            var x, y ;
+              x= 300 ;
+              y= value ;
+              
 
-            document.getElementById('total').value = y ;
+            document.getElementById('total').value = parseInt(x) + parseInt(y) ;
+  
           }
-        </script>
+    </script>
 
-    </head>
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
-        <center>
-        <div class="form">
-            <form class="form" action="" method="post">
-            {% csrf_token %}
+  </head>
+    <header class="header" id="header">
+      <div class="inner_header">
+        <div class="logo_container">
+          <h2>RESTAURANT<span>BOOKING</span><h2>
+        </div>
+      </div>
+    </header>
+  <body>
+    <form class="form" action="next" method="POST">
+      {% csrf_token %}
 
-    	<div class="heading">
-    		<h1>Tip Any Amount</h1>
-    	</div>
+      <h1>Tip Us</h1>
 
-      <label>Amount of Tip</label><br>
-      <input type="number" name="AmountofTip" id="AmountofTip" onkeyup="mult(this.value);">
+      <div class="formcontainer">
+      <hr/>
+      <div class="container">
+      <p>*If you don't want to tip us just leave it 0 and confirm. Thank You!</p>
+      <label>Amount of Tip:</label><br>
+      <input type="text" name="AmountofTip" id="AmountofTip" onkeyup="mult(this.value);" required>
       <br><br>
+
       <label>Booking Fee:</label><br>
-      <input type="text" name="fee" id="fee" readonly placeholder="300">
+      <input type="text" name="fee" id="fee" readonly placeholder="300" onkeyup="mult(this.value);">
       <br><br>
+
       <label>Total Amount:</label><br>
-      <input type="text" name="total" id="total" readonly>
+      <input type="text" name="total" id="total" placeholder="300" readonly>
+      <br><br><br><br><br>
 
+      <label>Additional Request:</label><br>
+      <textarea type="add" id=add name="add" ></textarea>
+      <br><br>
 
-                <!-- <div data-ng-app="" data-ng-init="fee=300">
-                <h4 id="Bfee">Booking Fee: {{fee}}</h4><br>
-
-                <p>*If you don't want to tip us just leave it 0 and confirm. Thank You!</p>
-
-                <div data-ng-app="" data-ng-init="tip=0">
-
-                <label>Amount of Tip:</label><br> <input type="number" ng-model="tip">
-
-
-                <h5 id="Bfee">Total Tip: {{tip}}</h5>
-                <h4><b>Total Amount:<b> {{fee + tip}}</h4>
-
-                <input type="submit" id="Submit" name="Submit" value="Confirm & Pay" class="button"> -->
-
-</div>
-
-    		</form>
-        </center>
-    </body>
-
-
- </html>
+      </div>
+      <button type="submit">Submit</button>
+      
+    </form>
+  </body>
+</html>
