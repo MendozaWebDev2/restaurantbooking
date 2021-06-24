@@ -9,7 +9,7 @@
       justify-content: center;
       font-family: Roboto, Arial, sans-serif;
       font-size: 15px;
-      background: /*url('{% static 'admin/img/fifth.webp' %}') no-repeat fixed;*/ white;
+      background: /*url('{% static 'admin/img/fifth.webp' %}') no-repeat fixed;*/ AntiqueWhite ;
       background-size: cover;
       }
 
@@ -20,13 +20,15 @@
       font-size: 15px;
       /*background: white;*/
       margin-top: 0;
+
       }
 
       form {
-      border: 5px solid #f1f1f1;
+      border: 5px solid black;
       position: relative;
       top: 140px;
       background: white;
+      border-radius: 20px;
       }
       .header {
         position: fixed;
@@ -67,44 +69,65 @@
         font-weight: 950;
       }
 
-      /*input[type=text] {
-      width: 100%;
-      padding: 16px 8px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      }
-*/
-      /*button {
-      background-color: maroon;
-      color: white;
-      padding: 14px 0;
-      margin: 10px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      }*/
-
       h1 {
       text-align:center;
       font-size:30;
       }
 
-     /* button:hover {
-      opacity: 0.8;
-      }*/
-
       .formcontainer {
       text-align: left;
-      margin: 24px 50px 12px;
+      margin: 0px 50px 12px;
+      padding: 10px 0;
       }
 
       .container {
-      padding: 16px 0;
+      margin: 10px 50px 12px;
+      padding: 10px 0;
       text-align:left;
       }
 
+      span {
+        font-weight: bold;
+      }
+      p {
+        text-transform: uppercase;
+      }
+
+      .home {
+        text-decoration: none;
+        text-align: center;
+        color:white;
+        background-color: maroon;
+        padding: 14px;
+        margin: 100px;
+        border: none;
+        cursor: pointer;
+        /*width: 100%;*/
+        border-radius: 10px;
+      }
+
+      .edit {
+        text-decoration: none;
+        text-align:left;
+        /*margin:10px;*/
+        color:black;
+        background-color: yellow;
+        border-radius: 10px;
+        padding: 14px 16px;
+        
+
+      }
+
+      .delete {
+        text-decoration: none;
+        text-align:left;
+        /*margin:40px;*/
+        color:black;
+        background-color: red;
+        border-radius: 10px;
+        padding: 14px 16px;
+        
+      }
       
     </style>
   </head>
@@ -117,35 +140,28 @@
   </header>
   <body>
     <form class="form" action="last" method="POST">
-      {% csrf_token %}>
+      {% csrf_token %}
 
-<center><h1>Thank You For Booking</h1></center>
-  <div class="den">
-     <div class="formcontainer">
-      <hr/>
-      <div class="container">
-    {% for den in den %}
-    <!-- <p>Costumer No.: {{ forloop.counter }}:{{ den.Costumer No. }}</p>
-    <p>First Name: {{ den.Name }}</p>
-    <p>Last Name: {{ den.Name1 }}</p>
-    <p>Contact Number: {{ den.Num }}</p>
-    <p>Restaurant Name: {{ den.Rname }}</p>
-    <p>No. of Seat: {{ den.Nums }}</p>
-    <p>Date: {{ den.date }}</p>
-    <p>Time: {{ den.time }}</p> -->
-    <p>Costumer No.:</p>
-    <p>First Name:</p>
-    <p>Last Name:</p>
-    <p>Contact Number:</p>
-    <p>Restaurant Name:</p>
-    <p>No. of Seat:</p>
-    <p>Date:</p>
-    <p>Time:</p>
+<center><h1>Booking Summary</h1></center>
+<hr>
+    <div class="formcontainer">
+
+    <div class="container">
+    <p><span>First Name:</span> {{info.Name}}</p>
+    <p><span>Last Name:</span> {{info.Name1}}</p>
+    <p><span>Contact Number:</span> {{info.Num}}</p>
+    <p><span>Restaurant Name:</span> {{ bookinginfo.Rname }}</p>
+    <p><span>No. of Seat:</span> {{ bookinginfo.Nums }}</p>
+    <p><span>Date:</span> {{ bookinginfo.date }}</p>
+    <p><span>Time:</span> {{ bookinginfo.time }}</p>
+    <br><br>
+    <center>
+    <a class="edit" href="/edit/{{ bookinginfo.id }}">Edit</a>
+    <a class="delete" href="/delete/{{ bookinginfo.id }}">Delete</a>
+    </center>
 
 </div>
 </div>
-</div>
-  {% endfor %}
-  </table>
+<center><a class="home" href="{% url 'home' %}">&#8617; Go Back To Home</a></center>
 </body>
 </html>

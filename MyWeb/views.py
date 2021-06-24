@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from .forms import BookingForm
 from .models import Booking, BookingDetails, Tip, Parking, Ratings
 
 def firstpage(request):
@@ -74,37 +75,39 @@ def rates(request):
 		comments = request.POST['comments'],
 		)
 
-	return render(request,'Ratings.html')
+	info=Booking.objects.last
+	bookinginfo=BookingDetails.objects.last
 
-# def lastpage(request):
+	return render(request,'BookingInfo.html', {
+		'info':info,
+		'bookinginfo':bookinginfo,}
+		)
 
-# 	return render(request,'BookingInfo.html')
+def resibo(request):
 
-# def info(request):
+	info=Booking.objects.last
+	bookinginfo=BookingDetails.objects.last
 
-# 	Boooking=BookingDetails.objects.create(
-# 		den=request.POST['den'],)
+	return render(request,'BookingInfo.html', {
+		'info':info,
+		'bookinginfo':bookinginfo,}
+		)
 
-# 	Name=Name.objects.last
-# 	Name1=Name1.objects.last
-# 	Rname=Rname.objects.last
-# 	Nums=Nums.objects.last
-# 	date=date.objects.last
-# 	time=time.objects.last
+def edit(request,id):
+	bookinginfo = BookingDetails.objects.get(id=id)
+	return render(request,'edit.html',{'bookinginfo':bookinginfo})
 
-# 	return render(request,'BookingInfo.html'), {
-# 	'Name':Name,
-# 	'Name1':Name1,
-# 	'Rname':Rname,
-# 	'Nums':Nums,
-# 	'date':date,
-# 	'time':time,}
+def update(request,id):
+	bookinginfo = BookingDetails.objects.get(id=id)
+	form = BookingForm(request.POST, instance = bookinginfo)
+	if form.is_valid():
+		form.save()
+	return redirect("/wow")
 
+	return render(request,'edit.html',{'bookinginfo':bookinginfo})
 
-
-# 	return render(request,'BookingInfo.html')
-
-
-
-
+def destroy(request,id):
+	bookinginfo = BookingDetails.objects.get(id=id)
+	bookinginfo.delete()
+	return redirect("/wow")
 

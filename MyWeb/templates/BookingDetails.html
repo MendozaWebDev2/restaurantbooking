@@ -82,6 +82,15 @@
       box-sizing: border-box;
       }
 
+      input[type=date], input[type=time] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+
       button {
       background-color: maroon;
       color: white;
@@ -111,6 +120,26 @@
       padding: 16px 0;
       text-align:left;
       }
+
+      .show {
+        display: none;
+      }
+
+      #yes:checked ~ .show {
+        display: block;
+      }
+      <script type="text/javascript">
+            function showDiv (divId)
+            {
+              var div = document.getElementById (divId) ;
+              var divs = document.getElementByTagName ('div') ;
+
+              {
+                divs[i].classname = "hidden";
+              }
+              div.className = "shown" ;
+            }
+      </script>
     </style>
   </head>
   <body>
@@ -143,17 +172,25 @@
           <label id=in3>Number of Seat:</label><br> 
           <input size="40" type="text" id=Nums name="Nums" placeholder="Seat" required>
 
-          <label id=in4>Date:</label><br> 
-          <input size="40" type="text" id=date name="date" placeholder="YYYY-MM-DD" required>
-
-          <label id=in5>Time:</label><br> 
-          <input size="40" type="text" id=time name="time" placeholder="HH:MM AM/PM" required>
-
+          <label id=in4>Date:</label><br>
+          <input size="40" type="date" id=date name="date" placeholder="YYYY-MM-DD" required>
+        
+          <label id=in5>Time:</label><br>
+          <input size="40" type="time" id=time name="time" placeholder="HH:MM" required>
+         
+          <center>
           <h3>Booking Fee: Php 300.00</h3>
           <p>*Note: We only accept cards.</p>
-
-          <br><br>
-
+          </center>
+          <br>
+          <br>
+            <p class="continue">Do you want to Continue?</p>
+            <input type="radio" onclick="showDiv ('1')" id="yes" name="select" class="radio">
+            <label for="yes" class="continue">Yes</label>
+            <input type="radio" onclick="showDiv ('2')" id="no" name="select" class="radio">
+            <label for="no" class="continue">No</label>
+            <br><br><br>
+          <div class="show">
           <label id=in2>Card Number:</label><br>
           <input size="40" type="text" id=cnum name="cnum" placeholder="0000 0000 0000 0000" required><br><br>
 
@@ -161,11 +198,12 @@
           <input size="40" type="text" id=cname name="cname" placeholder="Surname, Fisrtname, MI" required><br><br>
 
           <label id=in4>Expiration Date:</label><br>
-          <input size="40" type="text" id=cdate name="cdate" placeholder="YYYY-MM-DD" required><br><br>
+          <input size="40" type="date" id=cdate name="cdate" placeholder="YYYY-MM-DD" required><br><br>
 
           <label id=in5>Code:</label><br>
           <input size="6" type="password" id=ccode name="ccode" placeholder="****" required><br><br>
         </div>
+      </div>
       <button type="submit">Confirm</button>
       
     </form>

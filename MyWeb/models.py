@@ -6,7 +6,7 @@ class Booking(models.Model):
  	#first name
 	Name1 = models.CharField(max_length=50, null=True)
 	#last name
-	Num = models.IntegerField(null=True)
+	Num = models.CharField(max_length=50,null=True)
 	#Conctact number
 	Address = models.CharField(max_length=50, null=True)
  	#addres
@@ -20,9 +20,9 @@ class BookingDetails(models.Model):
  	#UniqueName of costumer
 	Rname = models.CharField(max_length=50, null=True)
  	#restaurant name
-	Nums = models.IntegerField(null=True)
+	Nums = models.CharField(max_length=50, null=True)
 	#number of seat
-	date = models.DateTimeField(max_length=50, null=True)
+	date = models.CharField(max_length=50, null=True)
 	#date
 	time = models.TimeField(max_length=50, null=True)
  	#time
@@ -43,19 +43,18 @@ class Tip(models.Model):
  	#UniqueName of costumer
 	AmountofTip = models.IntegerField(null=True)
  	#amount
-	add = models.IntegerField(null=True)
+	add = models.CharField(max_length=50,null=True)
 
-	def __str__(self):
- 		return self.AmountofTip
 
 class Parking(models.Model):
 	costumerId = models.ManyToManyField(Booking)
 	Ask = models.CharField(max_length=50, null=True)
 	#Ask if they have car or motorcyle
-	Ehours = models.CharField(max_length=50, null=True)
-	#estimated hours of parking
 	Kind = models.CharField(max_length=50, null=True)
 	#kind of vehicle
+	Ehours = models.CharField(max_length=50, null=True)
+	#estimated hours of parking
+	
 	def __str__(self):
 		return self.Ask
 

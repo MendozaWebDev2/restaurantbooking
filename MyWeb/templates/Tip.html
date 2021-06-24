@@ -121,6 +121,9 @@
       border: 1px solid #ccc;
       box-sizing: border-box;
     }
+    p{
+      font-style: italic;
+    }
     </style>
 
     <script>
@@ -128,10 +131,18 @@
             var x, y ;
               x= 300 ;
               y= value ;
-              
-
-            document.getElementById('total').value = parseInt(x) + parseInt(y) ;
-  
+        
+              if (isNaN(value)){
+          document.getElementById('total').value = "";
+          }
+        else if (value == 0){
+          document.getElementById('total').value = "";
+          }
+      else{
+          document.getElementById('total').value = parseInt(x) + parseInt(y) ;
+      }
+            
+      
           }
     </script>
 
@@ -152,14 +163,14 @@
       <div class="formcontainer">
       <hr/>
       <div class="container">
-      <p>*If you don't want to tip us just leave it 0 and confirm. Thank You!</p>
+      <h2>Booking Fee: Php 300</h2>
+      <p>*If you don't want to tip us just leave it 0 and confirm. Thank You!</p><br>
       <label>Amount of Tip:</label><br>
       <input type="text" name="AmountofTip" id="AmountofTip" onkeyup="mult(this.value);" required>
-      <br><br>
-
-      <label>Booking Fee:</label><br>
+      <br>
+      <!-- <label>Booking Fee:</label><br>
       <input type="text" name="fee" id="fee" readonly placeholder="300" onkeyup="mult(this.value);">
-      <br><br>
+      <br><br> -->
 
       <label>Total Amount:</label><br>
       <input type="text" name="total" id="total" placeholder="300" readonly>

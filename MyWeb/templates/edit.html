@@ -1,7 +1,7 @@
 {% load static %}
 <html>
   <head>
-    <title>Rate Us</title>
+    <title>Restaurant Booking Details</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <style>
       html {
@@ -11,7 +11,7 @@
       font-size: 15px;
       /*background-color: #bfb8b8  maroon;
       }*/
-      background: url('{% static 'image/fifth.webp' %}') no-repeat fixed;
+      background: url('{% static 'image/one.jpg' %}') no-repeat fixed;
       background-size: cover;
       }
 
@@ -82,6 +82,15 @@
       box-sizing: border-box;
       }
 
+      input[type=date], input[type=time] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+
       button {
       background-color: maroon;
       color: white;
@@ -112,58 +121,48 @@
       text-align:left;
       }
 
-      textarea {
-      width: 100%;
-      height: 100px;
-      padding: 8px;
-/*      margin: 8px 0;*/
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      }
-      p {
-        line-height: 17%;
-        font-style: italic;
-      }
+      s
     </style>
-
   </head>
-  <header class="header" id="header">
+  <body>
+  
+    <header class="header" id="header">
       <div class="inner_header">
         <div class="logo_container">
           <h2>RESTAURANT<span>BOOKING</span><h2>
         </div>
       </div>
     </header>
-  <body>
-    <form class="form" action="done" method="POST">
-      {% csrf_token %}
+        <div class="form">
+            <form method="POST" class="post-form" action="/update/{{bookinginfo.id}}">
+            {% csrf_token %}
 
-      <h1>Rate Your Booking Experience</h1>
-
-      <div class="formcontainer">
-      <hr/>
-      <div class="container">
-      
-
-      <p>Rate</p>
-      <p>1 - Very Disatisfied</p>
-      <p>2 - Disatisfied</p>
-      <p>3 - Fair</p>
-      <p>4 - Satisfied</p>
-      <p>5 - Very Satisfied</p>
-      <br>
-      <center><h3>Help us improve our website and costumer service.</h3></center>
-      <br>
-      <label id=in2>Rate</label><br>
-      <input size="40" type="text" id=rate name="rate" placeholder="1-5" required=""><br><br>
-
-      <label id=in2>Comments and Sugestions</label><br><br>
-      <textarea type="comments" id=comments name="comments" ></textarea>
-
+      <div class="heading">
+        <h1>Restaurant Booking Information</h1>
       </div>
-      <button type="submit">Submit</button>
-      
+          
+          <div class="formcontainer">
+          <hr/>
+          <div class="container">
+
+          <!-- <label id=in1>Costumer No.</label>
+          <input size="40" type="text" id=costumerId name="costumerId" placeholder="" readonly=""> -->
+
+          <label id=in2>Restaurant Name:</label><br>
+          <input size="40" type="text" id=Rname name="Rname" placeholder="Restaurant" value="{{ bookinginfo.Rname }}">
+
+          <label id=in3>Number of Seat:</label><br> 
+          <input size="40" type="text" id=Nums name="Nums" placeholder="Seat" value="{{ bookinginfo.Nums }}">
+
+          <label id=in4>Date:</label><br>
+          <input size="40" type="date" id=date name="date" placeholder="YYYY-MM-DD" value="{{ bookinginfo.date }}">
+        
+          <label id=in5>Time:</label><br>
+          <input size="40" type="time" id=time name="time" placeholder="HH:MM AM/PM" value="{{ bookinginfo.time }}">
+        
+        </div>
+      </div>
+      <button type="submit" href="/update/{{ bookinginfo.id }}">Submit</button>
       
     </form>
   </body>

@@ -106,13 +106,45 @@
       margin: 24px 50px 12px;
       padding: 0px;
       }
+    
+    .container {
 
-      .container {
-      padding: 16px 0;
       text-align:left;
       }
+
+      .container2 { 
+      text-align:left;
+    visibility:hidden;
+      }
       
+    .button{
+    padding: 16px 0;
+    }
+    
     </style>
+  <script>
+          function showHide(value){
+            var hide = document.getElementById("Ask");
+      if(hide.value.toLowerCase() == "no"){
+      document.getElementById("Kind").style.visibility="hidden";
+      document.getElementById("in2").style.visibility="hidden";
+      document.getElementById("Ehours").style.visibility="hidden";
+      document.getElementById("in3").style.visibility="hidden";
+      }
+      else if(hide.value.toLowerCase() == "yes"){
+      document.getElementById("Kind").style.visibility="visible";
+      document.getElementById("in2").style.visibility="visible";
+      document.getElementById("Ehours").style.visibility="visible";
+      document.getElementById("in3").style.visibility="visible";
+      }
+      else{
+      document.getElementById("Kind").style.visibility="hidden";
+      document.getElementById("in2").style.visibility="hidden";
+      document.getElementById("Ehours").style.visibility="hidden";
+      document.getElementById("in3").style.visibility="hidden";
+      }
+          }
+    </script>
   </head>
     <header class="header" id="header">
       <div class="inner_header">
@@ -128,24 +160,26 @@
       <h1>Parking Information</h1>
 
       <div class="formcontainer">
-      <hr/>
+      <hr/><br>
       <div class="container">
           <!-- <label id=in1>Costumer No.</label><br>
           <input size="40" type="text" id=costumerId name="costumerId" readonly=""><br><br> -->
           
           <label id=in1>Do you have vehicle?</label><br>
-          <input size="40" type="text" id=Ask name="Ask" placeholder="Yes or No" required=""><br><br>
-
-          <label id=in1>Type of Vehicle</label><br>
+          <input size="40" type="text" id=Ask name="Ask" placeholder="Yes or No" onkeyup="showHide(this.value);" required=""><br><br>
+    </div>
+    <div class="container2">  
+          <label id=in2>Type of Vehicle</label><br>
           <input size="40" type="text" id=Kind name="Kind"><br><br>
-
-          <label id=in2>Estimated Hours of Parking:</label><br>
+    
+          <label id=in3>Estimated Hours of Parking:</label><br>
           <input size="40" type="text" id=Ehours name="Ehours" placeholder="">
-          <p>*If your answer is No leave it blank and submit.</p>
-
+         
+    
       </div>
+    <div class="button">
       <button type="submit">Submit</button>
-      
+    </div>
     </form>
   </body>
 </html>
